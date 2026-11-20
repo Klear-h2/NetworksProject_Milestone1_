@@ -1,0 +1,41 @@
+MCT431 MILESTONE 1 — 2 ESP32 BOARDS + 2 PCs
+===========================================
+
+The team can start developing TODAY, even if your personal PC cannot install apps.
+Edit/share the source files now; use a team member's computer with ESP-IDF to
+flash the boards when you meet.
+
+VERY IMPORTANT:
+- Python simulator was tested. Actual ESP32 firmware was NOT compiled or
+  tested on the team's boards yet. Expect possible target/driver adjustments.
+- The simulator's logs are NOT real hardware evidence for the instructor.
+
+QUICKEST TEST WITHOUT BOARDS
+1. On ANY PC that already has Python 3.10+:
+2. Extract ZIP and open Command Prompt in folder MCT431_Milestone1.
+3. Run:  py -m gateway.app --simulate
+4. Open: http://localhost:8000
+5. Start default 10-part batch: expect 8 PASS, 2 FAIL.
+
+ON THE REAL TESTING DAY
+1. PC 1 creates a 2.4 GHz hotspot (or use router).
+2. In esp32_b/main/app_config.h, edit hotspot name & password.
+3. Flash ESP32 B with ESP-IDF; read the IP from serial monitor.
+4. Flash ESP32 A with ESP-IDF; close serial monitor.
+5. On PC 1 install PySerial: py -m pip install -r requirements.txt
+6. Connect ESP32 A by USB to PC 1; ESP32 B to same hotspot via Wi-Fi.
+7. PC 1 runs (replace placeholders):
+   py -m gateway.app --serial COM5 --inspection-host 192.168.137.101
+8. PC 2 connects to hotspot and opens http://<PC1-IP>:8000
+9. Wait for both ESP32s ONLINE; then run tests.
+10. Save evidence/hardware logs and Wireshark TCP capture.
+
+READ THESE NEXT:
+- README.md — full setup guide and troubleshooting
+- docs/TEAM_TEST_DAY.md — printable day-of checklist and test matrix
+- docs/MESSAGE_SPEC.md — network messages and states
+- docs/ARCHITECTURE.md — system diagram
+
+Suggested owners among 5 members:
+1 ESP32 A, 2 ESP32 B, 3 Gateway, 4 Dashboard, 5 Reliability/Testing.
+All members participate in integration and oral explanation.

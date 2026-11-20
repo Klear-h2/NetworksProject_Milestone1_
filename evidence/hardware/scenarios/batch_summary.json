@@ -1,0 +1,8 @@
+{
+  "batch_id": 7,
+  "produced": 10,
+  "accepted": 8,
+  "rejected": 2,
+  "inspection_ms_mean_observed": 1050.507,
+  "inspection_ms_note": "Gateway round trip from dispatch to result (includes link and scheduling time)"
+}
